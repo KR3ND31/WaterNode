@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "address": 7,
+    "valve_state": false,
+    "moisture": 447
+  },
+  {
+    "id": 2,
+    "address": 7,
+    "valve_state": false,
+    "moisture": 345
+  },
+  {
+    "id": 3,
+    "address": 9,
+    "valve_state": false,
+    "moisture": 696
+  },
+  {
+    "id": 4,
+    "address": 6,
+    "valve_state": false,
+    "moisture": 303
+  },
+  {
+    "id": 5,
+    "address": 5,
+    "valve_state": false,
+    "moisture": 468
+  },
+  {
+    "id": 6,
+    "address": 2,
+    "valve_state": false,
+    "moisture": 559
+  },
+  {
+    "id": 7,
+    "address": 8,
+    "valve_state": false,
+    "moisture": 554
+  },
+  {
+    "id": 8,
+    "address": 1,
+    "valve_state": false,
+    "moisture": 685
+  },
+  {
+    "id": 9,
+    "address": 4,
+    "valve_state": false,
+    "moisture": 621
+  },
+  {
+    "id": 10,
+    "address": 3,
+    "valve_state": false,
+    "moisture": 627
+  }
+]
