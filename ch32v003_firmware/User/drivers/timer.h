@@ -2,19 +2,16 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-uint32_t millis(void);
-void init_millis(void);
+uint32_t now_ms(void);
+void DelayMs(uint32_t ms);
+void DelayInit(void);
 
-static inline uint32_t now_ms(void) {
-    return millis();
-}
-
-// §±§â§à§Ó§Ö§â§Ü§Ñ: §Õ§à§ã§ä§Ú§Ô§Ý§Ú §Ý§Ú §Þ§à§Þ§Ö§ß§ä§Ñ §Ó§â§Ö§Þ§Ö§ß§Ú t
+// ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°: Ð´Ð¾ÑÑ‚Ð¸Ð³Ð»Ð¸ Ð»Ð¸ Ð¼Ð¾Ð¼ÐµÐ½Ñ‚Ð° Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ t
 static inline bool time_reached(uint32_t t) {
     return (int32_t)(now_ms() - t) >= 0;
 }
 
-// §±§â§à§Ó§Ö§â§Ü§Ñ: §á§â§à§ê§Ý§à §Ý§Ú >= dur_ms §Þ§ã §ã §Þ§à§Þ§Ö§ß§ä§Ñ start
+// ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°: Ð¿Ñ€Ð¾ÑˆÐ»Ð¾ Ð»Ð¸ >= dur_ms Ð¼Ñ Ñ Ð¼Ð¾Ð¼ÐµÐ½Ñ‚Ð° start
 static inline bool elapsed_ge(uint32_t start, uint32_t dur_ms) {
     return (uint32_t)(now_ms() - start) >= dur_ms;
 }

@@ -28,3 +28,6 @@ Debug \
 Peripheral/src \
 Startup \
 User \
+User/core \
+User/drivers \
+User/features \

@@ -1,4 +1,4 @@
-// === ß±ß⁄ßﬂ ß’ß—ß‰ßÈß⁄ß‹ß— ß”ß›ß—ßÿßﬂß‡ß„ß‰ß⁄ ===
+// === –ü–∏–Ω –¥–∞—Ç—á–∏–∫–∞ –≤–ª–∞–∂–Ω–æ—Å—Ç–∏ ===
 #include "ch32v00x_gpio.h"
 
 #define MOISTURE_SENSOR_PORT GPIOC
@@ -6,18 +6,18 @@
 #define MOISTURE_SENSOR_ADC_CH ADC_Channel_2
 
 void moisture_sensor_init(void) {
-    // ß£ß‹ß›ßßÈß⁄ß‰ßÓ ß‰ß—ß‹ß‰ß⁄ß‚ß‡ß”ß—ßﬂß⁄ß÷ ß·ß‡ß‚ß‰ß— ß⁄ ß°ß∏ß±
+    // –í–∫–ª—é—á–∏—Ç—å —Ç–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏–µ –ø–æ—Ä—Ç–∞ –∏ –ê–¶–ü
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_ADC1, ENABLE);
 
     GPIO_InitTypeDef gpio;
     ADC_InitTypeDef adc;
 
-    // ßØß—ß„ß‰ß‚ß‡ß€ß‹ß— ß·ß⁄ßﬂß— PC4 ß‹ß—ß‹ ß—ßﬂß—ß›ß‡ß‘ß‡ß”ßÌß€ ß”ßÁß‡ß’
+    // –ù–∞—Å—Ç—Ä–æ–π–∫–∞ –ø–∏–Ω–∞ PC4 –∫–∞–∫ –∞–Ω–∞–ª–æ–≥–æ–≤—ã–π –≤—Ö–æ–¥
     gpio.GPIO_Pin = MOISTURE_SENSOR_PIN;
     gpio.GPIO_Mode = GPIO_Mode_AIN;
     GPIO_Init(MOISTURE_SENSOR_PORT, &gpio);
 
-    // ßØß—ß„ß‰ß‚ß‡ß€ß‹ß— ADC
+    // –ù–∞—Å—Ç—Ä–æ–π–∫–∞ ADC
     adc.ADC_Mode = ADC_Mode_Independent;
     adc.ADC_ScanConvMode = DISABLE;
     adc.ADC_ContinuousConvMode = DISABLE;
@@ -26,10 +26,10 @@ void moisture_sensor_init(void) {
     adc.ADC_NbrOfChannel = 1;
     ADC_Init(ADC1, &adc);
 
-    // ßØß—ß„ß‰ß‚ß‡ß€ß‹ß— ß⁄ß„ß·ß‡ß›ßÓßŸßÂß÷ßﬁß‡ß‘ß‡ ß‹ß—ßﬂß—ß›ß—
+    // –ù–∞—Å—Ç—Ä–æ–π–∫–∞ –∏—Å–ø–æ–ª—å–∑—É–µ–º–æ–≥–æ –∫–∞–Ω–∞–ª–∞
     ADC_RegularChannelConfig(ADC1, MOISTURE_SENSOR_ADC_CH, 1, ADC_SampleTime_241Cycles);
 
-    // ß£ß‹ß›ßßÈß÷ßﬂß⁄ß÷ ß°ß∏ß± ß⁄ ß‹ß—ß›ß⁄ß“ß‚ß‡ß”ß‹ß—
+    // –í–∫–ª—é—á–µ–Ω–∏–µ –ê–¶–ü –∏ –∫–∞–ª–∏–±—Ä–æ–≤–∫–∞
     ADC_Cmd(ADC1, ENABLE);
     ADC_ResetCalibration(ADC1);
     while (ADC_GetResetCalibrationStatus(ADC1));

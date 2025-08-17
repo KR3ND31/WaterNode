@@ -1,7 +1,6 @@
 #include "device.h"
 #include "ch32v00x_flash.h"
 
-
 uint8_t device_uid[4];
 uint8_t DEVICE_ADDR = 0x00;
 
@@ -17,14 +16,14 @@ void init_device(void) {
     device_uid[2] = uid2 >> 24;
     device_uid[3] = uid2 >> 16;
 
-    // ß©ß—ß‘ß‚ßÂßÿß—ß÷ßﬁ ß„ß‡ßÁß‚ß—ßﬂß◊ßﬂßﬂßÌß€ ß—ß’ß‚ß÷ß„ ß⁄ßŸ flash (ß÷ß„ß›ß⁄ ß÷ß„ß‰ßÓ)
+    // –ó–∞–≥—Ä—É–∂–∞–µ–º —Å–æ—Ö—Ä–∞–Ω—ë–Ω–Ω—ã–π –∞–¥—Ä–µ—Å –∏–∑ flash (–µ—Å–ª–∏ –µ—Å—Ç—å)
     DEVICE_ADDR = load_device_address();
 }
 
 void save_device_address(uint8_t addr) {
     FLASH_Unlock();
 
-    // ß≥ß‰ß÷ß‚ß÷ß‰ßÓ ß‡ß’ßﬂßÂ ß„ß‰ß‚ß—ßﬂß⁄ßËßÂ
+    // –°—Ç–µ—Ä–µ—Ç—å –æ–¥–Ω—É —Å—Ç—Ä–∞–Ω–∏—Ü—É
     FLASH_ErasePage(FLASH_ADDR_DEVICE);
 
     FLASH_ProgramHalfWord(FLASH_ADDR_DEVICE, addr);
@@ -34,5 +33,5 @@ void save_device_address(uint8_t addr) {
 
 uint8_t load_device_address() {
     uint8_t value = *(volatile uint8_t *)FLASH_ADDR_DEVICE;
-    return (value == 0xFF || value == 0x00) ? 0x00 : value;  // ß÷ß„ß›ß⁄ ß·ßÂß„ß‰ß‡ °™ ß”ß÷ß‚ßﬂßÂß‰ßÓ 0
+    return (value == 0xFF || value == 0x00) ? 0x00 : value;  // –µ—Å–ª–∏ –ø—É—Å—Ç–æ ‚Äî –≤–µ—Ä–Ω—É—Ç—å 0
 }

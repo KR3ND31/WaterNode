@@ -8,6 +8,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include User/features/subdir.mk
+-include User/drivers/subdir.mk
+-include User/core/subdir.mk
 -include User/subdir.mk
 -include Startup/subdir.mk
 -include Peripheral/src/subdir.mk
@@ -55,7 +58,7 @@ main-build: Droplet_Module_CH32V003.elf secondary-outputs
 
 # Tool invocations
 Droplet_Module_CH32V003.elf: $(OBJS) $(USER_OBJS)
-	@	riscv-none-embed-gcc -march=rv32ecxw -mabi=ilp32e -msmall-data-limit=0 -msave-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized -g -T "c:/Users/dimaa/mounriver-studio-projects/Droplet_Module_CH32V003/Ld/Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"Droplet_Module_CH32V003.map" --specs=nano.specs --specs=nosys.specs -o "Droplet_Module_CH32V003.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lprintf
+	@	riscv-none-embed-gcc -march=rv32ecxw -mabi=ilp32e -msmall-data-limit=0 -msave-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized -g -T "e:/Projects/WaterNode/ch32v003_firmware/Ld/Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"Droplet_Module_CH32V003.map" --specs=nano.specs --specs=nosys.specs -o "Droplet_Module_CH32V003.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lprintf
 Droplet_Module_CH32V003.hex: Droplet_Module_CH32V003.elf
 	@	riscv-none-embed-objcopy -O ihex "Droplet_Module_CH32V003.elf" "Droplet_Module_CH32V003.hex"
 Droplet_Module_CH32V003.lst: Droplet_Module_CH32V003.elf

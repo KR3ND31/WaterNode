@@ -53,6 +53,11 @@ WaterNode/
 | `01 02 00 21 60`                          | 0x02  | Get Moisture           | Master ↔ Node   | Request soil moisture value |
 | `01 03 01 00 F0 48`                       | 0x03  | Set Valve State        | Master ↔ Node   | Close valve (payload `0x00`) |
 | `01 03 01 01 31 88`                       | 0x03  | Set Valve State        | Master ↔ Node   | Open valve (payload `0x01`) |
+| `01 04 00 56 A2`                          | 0x04  | Get Valve State        | Master ↔ Node   | Query current valve state (returns `0x00` or `0x01`) |
+| `01 11 00 89 44`                          | 0x11  | Heartbeat              | Master → Node   | Periodic keep-alive signal to prevent valve timeout |
+| `01 12 00 35 C2`                          | 0x12  | Status                 | Master ↔ Node   | Return status (flags, uptime, CRC errors, UID, etc.) |
+| `01 13 01 3C 52 B1`                       | 0x13  | Set Timeout            | Master ↔ Node   | Set heartbeat timeout in seconds (1–60) |
+| `01 17 00 92 7F`                          | 0x17  | Reboot                 | Master ↔ Node   | Force node to reboot |
 | `01 F3 02 01 A5 4A AF`                    | 0xF3  | Reset Address          | Master ↔ Node   | Request node to reset its assigned address |
 | `01 F4 02 01 A5 4B DB`                    | 0xF4  | Confirm Address Reset  | Master ↔ Node   | Confirm address reset for node |
 
