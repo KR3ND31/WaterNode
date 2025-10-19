@@ -1,6 +1,7 @@
 // === Пин датчика влажности ===
 #include "ch32v00x_gpio.h"
 
+// pin PC4
 #define MOISTURE_SENSOR_PORT GPIOC
 #define MOISTURE_SENSOR_PIN  GPIO_Pin_4
 #define MOISTURE_SENSOR_ADC_CH ADC_Channel_2
@@ -12,7 +13,7 @@ void moisture_sensor_init(void) {
     GPIO_InitTypeDef gpio;
     ADC_InitTypeDef adc;
 
-    // Настройка пина PC4 как аналоговый вход
+    // Настройка пина как аналоговый вход
     gpio.GPIO_Pin = MOISTURE_SENSOR_PIN;
     gpio.GPIO_Mode = GPIO_Mode_AIN;
     GPIO_Init(MOISTURE_SENSOR_PORT, &gpio);

@@ -53,8 +53,11 @@ int main(void)
     USARTx_CFG();        // Настройка UART 
     UART_SetAutoInterByteTimeout(); // конфиг таймаута
     moisture_sensor_init(); // Иницилизация пина влажности
+    valve_init(); // Иницилизация пина клапана
 
     RS485_SetRX(); // По умолчанию — режим приёма
+
+    set_valve_state(true);
 
     while (1) {
         protocol_poll();
